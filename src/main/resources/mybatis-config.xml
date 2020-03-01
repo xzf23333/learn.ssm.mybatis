@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<properties resource="jdbc.properties"></properties>
+<!-- 类型别名 -->
+<typeAliases>
+	<typeAlias type="my.learn.ssm.pojo.News" alias="News"/>
+</typeAliases>
+
+
+<environments default="development">
+<environment id="development">
+   <transactionManager type="JDBC"/>
+   <dataSource type="POOLED">	  
+  	<property name="url" value="${url}"/>
+  	<property name="username" value="${username}"/>
+  	<property name="password" value="${username}"/>
+  	<property name="driver" value="${driver}"/>
+  </dataSource>
+</environment>
+</environments>
+
+<!-- 导入dao的映射文件 -->
+<mappers>
+	<mapper resource="mapperxml/NewsMapper.xml"/>
+</mappers>
+</configuration>

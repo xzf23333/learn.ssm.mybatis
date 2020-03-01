@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="my.learn.ssm.pojo.News">
+
+  <insert id="insert" parameterType="News">
+    insert into news(title,content) values (#{title},#{content})
+  </insert>
+
+  <delete id="delete" parameterType="int">
+    delete from news where id = #{id}
+  </delete>
+
+  <update id="update" parameterType="News">
+    update news set title = #{title},content = #{content} where id = #{id}
+  </update>
+
+  <select id="listNews" resultType="News">
+    select * from news 
+  </select>
+
+  <select id="selectNewsByKey" parameterType="int" resultType="my.learn.ssm.pojo.News">
+    select * from news where id = #{id}
+  </select>
+</mapper>
